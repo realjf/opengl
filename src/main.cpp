@@ -29,10 +29,14 @@ int main()
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
     // init glad
-    if(gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-    {
-        std::cout << "Failed to initialize GLAD" << std::endl;
-        return -1;
+    // if(gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+    // {
+    //     std::cout << "Failed to initialize GLAD" << std::endl;
+    //     return -1;
+    // }
+
+    if(!gladLoadGL()) { 
+        exit(-1);
     }
 
 
