@@ -1,5 +1,7 @@
 #!/bin/sh
 
+apt-get install cmake gcc g++ make build-essential -y
+
 apt-get install -y libglew-dev libopengl-dev libx11-dev libxi-dev \
     libxcursor-dev libxrandr-dev libxinerama-dev libglfw3-dev libxxf86vm-dev \
     libgl1-mesa-dev libglu1-mesa-dev libassimp-dev
