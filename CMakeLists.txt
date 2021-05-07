@@ -14,13 +14,12 @@ set( GLAD_INCLUDE_DIR ${opengl_SOURCE_DIR}/deps/glad/include )
 list( APPEND opengl_INCLUDE ${GLFW_INCLUDE_DIR})
 list( APPEND opengl_INCLUDE ${GLAD_INCLUDE_DIR})
 
-
 find_package( OpenGL REQUIRED )
 
 if(WIN32)
-    set(COMMON_LIBS optimized glfw3 debug glfw3_d ${GLFW_LIBRARIES} ${OPENGL_LIBRARIES})
+    set(COMMON_LIBS optimized glfw opengl32 ${GLFW_LIBRARIES} ${OPENGL_LIBRARIES})
 elseif (UNIX)
-    set(COMMON_LIBS glfw3 X11 GL GLEW)
+    set(COMMON_LIBS glfw X11 GL GLEW Xrandr Xi Xxf86vm Xcursor Xinerama)
 else()
     set(COMMON_LIBS)
 endif()
