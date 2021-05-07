@@ -1,4 +1,5 @@
-add_executable(example main.cpp glad.c)
+set(SOURCE_FILES main.cpp glad.c)
+add_executable(example ${SOURCE_FILES})
 
 # add_subdirectory(renderer)
 

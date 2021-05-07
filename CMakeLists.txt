@@ -8,10 +8,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # glfw header files
 set( GLFW_INCLUDE_DIR ${opengl_SOURCE_DIR}/deps/glfw/include )
+set( GLFW_DEPS_INCLUDE_DIR ${opengl_SOURCE_DIR}/deps/glfw/deps )
 # glad header files
 set( GLAD_INCLUDE_DIR ${opengl_SOURCE_DIR}/deps/glad/include )
 
+
 list( APPEND opengl_INCLUDE ${GLFW_INCLUDE_DIR})
+list( APPEND opengl_INCLUDE ${GLFW_DEPS_INCLUDE_DIR})
 list( APPEND opengl_INCLUDE ${GLAD_INCLUDE_DIR})
 
 find_package( OpenGL REQUIRED )
@@ -23,6 +26,7 @@ elseif (UNIX)
 else()
     set(COMMON_LIBS)
 endif()
+
 
 include_directories( ${opengl_INCLUDE} )
 
