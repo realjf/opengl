@@ -12,11 +12,13 @@ set( GLFW_INCLUDE_DIR ${opengl_SOURCE_DIR}/deps/glfw/include )
 set( GLFW_DEPS_INCLUDE_DIR ${opengl_SOURCE_DIR}/deps/glfw/deps )
 # glad header files
 set( GLAD_INCLUDE_DIR ${opengl_SOURCE_DIR}/deps/glad/include )
-
+# glm header files
+set( GLM_INCLUDE_DIR ${opengl_SOURCE_DIR}/deps/glm )
 
 list( APPEND opengl_INCLUDE ${GLFW_INCLUDE_DIR})
 list( APPEND opengl_INCLUDE ${GLFW_DEPS_INCLUDE_DIR})
 list( APPEND opengl_INCLUDE ${GLAD_INCLUDE_DIR})
+list( APPEND opengl_INCLUDE ${GLM_INCLUDE_DIR})
 
 # legacy
 # find_package( OpenGL REQUIRED )
