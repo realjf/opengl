@@ -50,33 +50,7 @@ int main()
 
     if(!gladLoadGL()) { 
         exit(-1);
-    }
-
-    float vertices[] = {
-        -0.5f, -0.5f, 0.0f, // left
-        0.5f, -0.5f, 0.0f, // right
-        0.0f,  0.5f, 0.0f // top
-    };
-
-    // 顶点输入
-    unsigned int VBO, VAO;
-    glGenBuffers(1, &VBO);
-    glGenVertexArrays(1, &VAO);
-    glBindVertexArray(VAO);
-
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    // 复制顶点数组到缓冲中供OpenGL使用
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-    // 告诉OpenGL该如何解析顶点数据
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-    // 以顶点属性位置值作为参数，启用顶点属性，顶点属性默认是禁用的
-    glEnableVertexAttribArray(0);
-    // 已经调用glVertexAttribPointer将VBO注册为顶点属性的绑定顶点缓冲区对象，因此此后我们可以安全地解除绑定
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
-    // 之后，您可以取消绑定VAO，这样其他VAO调用就不会意外修改此VAO，
-    // 因为修改其他VAO无论如何都需要调用glBindVertexArray，所以在不是直接需要情况下，我们通常不解绑VAO
-    glBindVertexArray(0);
+    }  
 
 
     // 顶点着色器
@@ -134,7 +108,50 @@ int main()
 
     // 调用glUseProgram函数，用刚创建的程序对象作为它的参数，以激活这个程序对象
     glUseProgram(shaderProgram);
+
+    // 三角形
+    // float vertices[] = {
+    //     -0.5f, -0.5f, 0.0f, // left
+    //     0.5f, -0.5f, 0.0f, // right
+    //     0.0f,  0.5f, 0.0f // top
+    // }; 
     
+    // 索引缓冲对象
+    float vertices[] = {
+        0.5f, 0.5f, 0.0f,   // 右上角
+        0.5f, -0.5f, 0.0f,  // 右下角
+        -0.5f, -0.5f, 0.0f, // 左下角
+        -0.5f, 0.5f, 0.0f   // 左上角
+    };
+
+    unsigned int indices[] = { // 注意索引从0开始! 
+        0, 1, 3, // 第一个三角形
+        1, 2, 3  // 第二个三角形
+    };
+
+    // 顶点输入
+    unsigned int VBO, VAO, EBO;
+    glGenBuffers(1, &VBO);
+    glGenBuffers(1, &EBO);
+    glGenVertexArrays(1, &VAO);
+
+    glBindVertexArray(VAO);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    // 复制顶点数组到缓冲中供OpenGL使用
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    // 将索引复制到缓冲里
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
+    // 告诉OpenGL该如何解析顶点数据
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    // 以顶点属性位置值作为参数，启用顶点属性，顶点属性默认是禁用的
+    glEnableVertexAttribArray(0);
+    // 已经调用glVertexAttribPointer将VBO注册为顶点属性的绑定顶点缓冲区对象，因此此后我们可以安全地解除绑定
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    // 之后，您可以取消绑定VAO，这样其他VAO调用就不会意外修改此VAO，
+    // 因为修改其他VAO无论如何都需要调用glBindVertexArray，所以在不是直接需要情况下，我们通常不解绑VAO
+    glBindVertexArray(0);
 
 
     while (!glfwWindowShouldClose(window))
@@ -152,7 +169,11 @@ int main()
          // 画三角形
         glUseProgram(shaderProgram);
         glBindVertexArray(VAO); // seeing as we only have a single VAO there's no need to bind it every time, but we'll do so to keep things a bit more organized
-        glDrawArrays(GL_TRIANGLES, 0, 3);   
+        // glDrawArrays(GL_TRIANGLES, 0, 3);   
+
+        // 画矩形
+        
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
         // -------------------------------------------------------------------------------
