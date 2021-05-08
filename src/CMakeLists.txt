@@ -2,3 +2,4 @@
 add_subdirectory(recipe-01)
 add_subdirectory(recipe-02)
 add_subdirectory(recipe-03)
+add_subdirectory(recipe-04)
