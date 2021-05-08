@@ -1,6 +1,5 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include <shader.hpp>
 #include <iostream>
 
 
@@ -53,10 +52,6 @@ int main()
     if(!gladLoadGL()) { 
         exit(-1);
     }  
-
-    // build and compile our shader program
-    // ------------------------------------
-    Shader ourShader("3.3.shader.vs", "3.3.shader.fs"); // you can name your shader files however you like
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
