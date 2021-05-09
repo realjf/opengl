@@ -29,5 +29,8 @@ cmake ./
 make
 sudo make install
 
+# download submodule
+git submodule update --init --recursive
 
+# git config --global http.proxy http://xxxx
 
