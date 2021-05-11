@@ -1,4 +1,4 @@
-set(SOURCE_FILES main.cpp ../glad.c)
+set(SOURCE_FILES main.cpp ../../glad.c)
 add_executable(recipe-03 ${SOURCE_FILES})
 
 
