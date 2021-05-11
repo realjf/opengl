@@ -14,11 +14,14 @@ set( GLFW_DEPS_INCLUDE_DIR ${opengl_SOURCE_DIR}/deps/glfw/deps )
 set( GLAD_INCLUDE_DIR ${opengl_SOURCE_DIR}/deps/glad/include )
 # glm header files
 set( GLM_INCLUDE_DIR ${opengl_SOURCE_DIR}/deps/glm )
+# assimp header files
+set( ASSIMP_INCLUDE_DIR ${opengl_SOURCE_DIR}/deps/assimp/include )
 
 list( APPEND opengl_INCLUDE ${GLFW_INCLUDE_DIR})
 list( APPEND opengl_INCLUDE ${GLFW_DEPS_INCLUDE_DIR})
 list( APPEND opengl_INCLUDE ${GLAD_INCLUDE_DIR})
 list( APPEND opengl_INCLUDE ${GLM_INCLUDE_DIR})
+list( APPEND opengl_INCLUDE ${ASSIMP_INCLUDE_DIR})
 
 # legacy
 # find_package( OpenGL REQUIRED )
@@ -56,7 +59,9 @@ endif()
 include_directories( ${opengl_INCLUDE} )
 
 # defines targets and sources
+# add_subdirectory(deps/assimp)
 add_subdirectory(src)
+
 
 # enable testing and define tests
 # enable_testing()
