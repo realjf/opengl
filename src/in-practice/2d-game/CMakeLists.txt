@@ -1,5 +1,6 @@
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR} )
-set(SOURCE_FILES main.cpp ../../glad.c game.cpp resource_manager.cpp shader.cpp texture.cpp sprite_renderer.cpp)
+set(SOURCE_FILES main.cpp ../../glad.c game.cpp resource_manager.cpp shader.cpp texture.cpp sprite_renderer.cpp
+    game_object.cpp game_level.cpp)
 add_executable(2d-game ${SOURCE_FILES})
 
 
