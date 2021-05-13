@@ -5,6 +5,7 @@
 #include <GLFW/glfw3.h>
 
 #include <iostream>
+#include <stdio.h>
 
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
@@ -46,14 +47,14 @@ int main()
     // Setup Dear ImGui style
     ImGui::StyleColorsDark();
 
-
     // Setup Platform/Renderer bindings
     ImGui_ImplGlfw_InitForOpenGL(window, true);
-    ImGui_ImplOpenGL3_Init("4.1");
+    ImGui_ImplOpenGL3_Init("#version 330");
     
 
     while (!glfwWindowShouldClose(window))
     {
+        glfwPollEvents();
         // input
         // -----
         processInput(window);
