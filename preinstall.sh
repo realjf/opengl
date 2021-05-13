@@ -36,3 +36,5 @@ git submodule update --init --recursive
 
 # git config --global http.proxy http://xxxx
 
+# install glxinfo -B
+apt-get install mesa-utils

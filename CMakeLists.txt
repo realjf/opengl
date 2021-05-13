@@ -54,12 +54,12 @@ if(WIN32)
     
     list( APPEND opengl_INCLUDE ${GLFW_INCLUDE_DIR})
     list( APPEND opengl_INCLUDE ${GLEW_INCLUDE_DIR})
-    set(COMMON_LIBS glfw3.lib opengl32.lib ${GLFW_LIBRARIES} ${OPENGL_LIBRARIES} ${GLEW_LIBRARY} )
+    set(COMMON_LIBS glfw3.lib opengl32.lib gdi32.lib shell32.lib ${GLFW_LIBRARIES} ${OPENGL_LIBRARIES} ${GLEW_LIBRARY} )
 elseif (UNIX)
     # SOIL library is legacy
     set(COMMON_LIBS glfw X11 GL GLEW Xrandr Xi Xxf86vm Xcursor Xinerama pthread GLU dl GLU assimp)
 else()
-    set(COMMON_LIBS glfw3 opengl32 ${GLFW_LIBRARIES} ${OPENGL_LIBRARIES})
+    set(COMMON_LIBS glfw3.lib opengl32.lib gdi32.lib shell32.lib ${GLFW_LIBRARIES} ${OPENGL_LIBRARIES})
 endif()
 
 

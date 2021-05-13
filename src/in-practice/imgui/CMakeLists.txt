@@ -1,6 +1,6 @@
 
 set(SOURCE_FILES 
-    main.cpp 
+    main2.cpp 
     ../../glad.c 
     ../../../deps/imgui/backends/imgui_impl_opengl3.cpp 
     ../../../deps/imgui/backends/imgui_impl_glfw.cpp
