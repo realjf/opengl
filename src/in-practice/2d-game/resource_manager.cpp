@@ -4,6 +4,7 @@
 #include <sstream>
 #include <fstream>
 
+#define STB_IMAGE_IMPLEMENTATION
 // #include <SOIL.h>
 #include "stb_image.h" // 使用stb库代替SOIL库
 
