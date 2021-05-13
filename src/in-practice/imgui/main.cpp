@@ -5,7 +5,6 @@
 #include <GLFW/glfw3.h>
 
 #include <iostream>
-#include <stdio.h>
 
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
@@ -49,12 +48,12 @@ int main()
 
     // Setup Platform/Renderer bindings
     ImGui_ImplGlfw_InitForOpenGL(window, true);
-    ImGui_ImplOpenGL3_Init("#version 330");
+    ImGui_ImplOpenGL3_Init("#version 150");
     
+    bool show_demo_window = true;
 
     while (!glfwWindowShouldClose(window))
     {
-        glfwPollEvents();
         // input
         // -----
         processInput(window);
@@ -68,6 +67,10 @@ int main()
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
+
+        if (show_demo_window)
+            ImGui::ShowDemoWindow(&show_demo_window);
+
 
         {
             ImGui::Begin("Demo window");
