@@ -5,4 +5,8 @@ add_subdirectory(01)
 add_subdirectory(02)
 # 第三节：材质
 add_subdirectory(03)
+# 第三节：光照贴图
+add_subdirectory(04)
+
+
 
