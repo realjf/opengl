@@ -10,9 +10,9 @@ set(SOURCE_FILES
     ../../../deps/imgui/imgui_widgets.cpp 
     ../../../deps/imgui/imgui_demo.cpp) 
 
-add_executable(imgui ${SOURCE_FILES})
+add_executable(imgui-01 ${SOURCE_FILES})
 
 
-target_link_libraries(imgui 
+target_link_libraries(imgui-01 
     PUBLIC 
     ${COMMON_LIBS})
