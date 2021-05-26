@@ -38,3 +38,6 @@ git submodule update --init --recursive
 
 # install glxinfo -B
 apt-get install mesa-utils
+
+# install box2d
+# apt-get install libbox2d-dev
